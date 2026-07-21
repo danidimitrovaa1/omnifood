@@ -1,0 +1,267 @@
+/* 
+
+--- 01 TYPOGRAPHY SYSTEM
+
+-    Font sizes (px):
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-    Font weights
+    Default: 400
+
+-    Line heights
+    Default: 1
+    1.05
+
+--- 02 COLOURS
+
+-   Primary: #E9631C
+-   Tints: #fbecde
+-   Shades: 
+-   Accents: 
+-   Greys: 
+    #555
+    #333;
+    
+--- 03 SHADOWS
+
+--- 04 BORDER-RADIUS
+
+Default: 150px (Full oval)
+
+--- 05 WHITESPACE
+
+-    SPACING SYSTEM (px)
+     2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Now 1rem = 10px */
+  /* font-size: 20px; */
+
+  /* Percentage of user's browser font-size setting: */
+  /* 10px / 16px = 0.625 = 62.5%; */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #444;
+
+  /* Only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+}
+
+/* ******************************* */
+/* GENERAL REUSABLE COMPONENTS */
+/* ******************************* */
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-ver {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 4.8rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4rem;
+  margin-bottom: 8rem;
+}
+
+.heading-tertiary {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* background-color: #f9e7d8;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid #e9631c; */
+  color: #e9631c;
+  border-radius: 100px;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 150px;
+  text-decoration: none;
+
+  /* Only necessary for .btn : */
+  border: none;
+  cursor: pointer;
+  color: inherit;
+
+  /* Put transition on original state */
+  transition: all 0.2s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e9631c;
+  color: white;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #fbecde;
+  box-shadow: inset 0 0 0 2px #e9631c;
+  color: #e9631c;
+  cursor: pointer;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  /* border: 2px solid #E9631C; */
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fbecde;
+  /* border: 2px solid white; */
+
+  /* Trick to add border inside: */
+  box-shadow: inset 0 0 0 2px white;
+
+  cursor: pointer;
+}
+
+.btn--form {
+  align-self: end;
+  padding: 1.2rem;
+  color: #fff5ed;
+  background-color: #3a1907;
+  border: 1px solid #3a1907;
+  border-radius: 11px;
+
+  transition: all 0.2s;
+}
+
+.btn--form:hover {
+  color: #3a1907;
+  background-color: #fff5ed;
+  border: 1px solid #fff5ed;
+}
+
+.btn--form .link:link,
+.link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #e9631c;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  padding-bottom: 2px;
+
+  transition: all 0.1s;
+}
+
+.link:hover,
+.link:active {
+  color: #b74d13;
+  transform: scale(1.04);
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 3px dotted black;
+  outline-offset: 6px; */
+  /* box-shadow: 0 0 0 0.8rem white; */
+}
+
+/* Helper/Settings classes: */
+.margin-right-small {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-medium {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+strong {
+  font-weight: 700;
+}
